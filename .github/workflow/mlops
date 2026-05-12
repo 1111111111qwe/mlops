@@ -1,0 +1,19 @@
+name: MLOps End-to-End Pipeline
+
+# ── SECTION 1: TRIGGERS ──────────────────────────
+on:
+  push:
+    branches: [dev]
+    paths:
+      - 'src/**'
+      - 'train.py'
+  pull_request:
+    branches: [main]
+
+# ── SECTION 2: JOBS ──────────────────────────────
+jobs:
+
+  # ── JOB 1: CI — Validate ─────────────────────
+  validate:
+    runs-on: ubuntu-latest
+    
